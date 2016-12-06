@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import asyncio, logging
-logging.basicConfig(filename='app.log', mode='a', level = logging.INFO)
+logging.basicConfig(filename='app.log', level = logging.INFO)
 
 import aiomysql
 

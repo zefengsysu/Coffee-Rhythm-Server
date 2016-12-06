@@ -1,7 +1,7 @@
 #!/usr/bin/python3.5
 # -*- coding: utf-8 -*-
 
-import logging; logging.basicConfig(filename='app.log', mode='w', level = logging.INFO)
+import logging; logging.basicConfig(filename='app.log', filemode='w', level = logging.INFO)
 
 import asyncio, os, json, time
 

@@ -4,7 +4,7 @@
 ' url handlers '
 
 import re, time, json, logging, hashlib, base64, asyncio, os
-logging.basicConfig(filename='app.log', mode='a', level = logging.INFO)
+logging.basicConfig(filename='app.log', level = logging.INFO)
 
 from aiohttp import web
 
