@@ -1,0 +1,175 @@
+INFO:root:found model: User (table: user)
+INFO:root:found mapping: nickname ==> <StringField, varchar(50), None>
+INFO:root:found mapping: enjoy_sugar ==> <BooleanField, boolean, None>
+INFO:root:found mapping: single_espresso ==> <BooleanField, boolean, None>
+INFO:root:found mapping: avatar ==> <StringField, varchar(200), None>
+INFO:root:found mapping: password ==> <StringField, varchar(50), None>
+INFO:root:found mapping: city ==> <StringField, varchar(50), None>
+INFO:root:found mapping: introduction ==> <TextField, text, None>
+INFO:root:found mapping: email ==> <StringField, varchar(50), None>
+INFO:root:found mapping: isadmin ==> <BooleanField, boolean, None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: enjoy_milk ==> <BooleanField, boolean, None>
+INFO:root:found model: Cafe (table: cafe)
+INFO:root:found mapping: city ==> <StringField, varchar(50), None>
+INFO:root:found mapping: address ==> <StringField, varchar(200), None>
+INFO:root:found mapping: email ==> <StringField, varchar(50), None>
+INFO:root:found mapping: introduction ==> <TextField, text, None>
+INFO:root:found mapping: name ==> <StringField, varchar(50), None>
+INFO:root:found mapping: image ==> <StringField, varchar(200), None>
+INFO:root:found mapping: password ==> <StringField, varchar(50), None>
+INFO:root:found model: Activity (table: activity)
+INFO:root:found mapping: signup_end_at ==> <DoubleField, double, None>
+INFO:root:found mapping: idactivity ==> <StringField, varchar(50), None>
+INFO:root:found mapping: end_at ==> <DoubleField, double, None>
+INFO:root:found mapping: signup_start_at ==> <DoubleField, double, None>
+INFO:root:found mapping: name ==> <StringField, varchar(50), None>
+INFO:root:found mapping: image ==> <StringField, varchar(200), None>
+INFO:root:found mapping: start_at ==> <DoubleField, double, None>
+INFO:root:found mapping: address ==> <StringField, varchar(200), None>
+INFO:root:found mapping: created_from ==> <StringField, varchar(50), None>
+INFO:root:found mapping: introduction ==> <TextField, text, None>
+INFO:root:found mapping: belong_to ==> <StringField, varchar(50), None>
+INFO:root:found model: Course (table: course)
+INFO:root:found mapping: israwbest ==> <BooleanField, boolean, None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: idcourse ==> <StringField, varchar(50), None>
+INFO:root:found mapping: video ==> <StringField, varchar(200), None>
+INFO:root:found mapping: introduction ==> <TextField, text, None>
+INFO:root:found mapping: name ==> <TextField, text, None>
+INFO:root:found mapping: image ==> <StringField, varchar(200), None>
+INFO:root:found mapping: author ==> <StringField, varchar(50), None>
+INFO:root:found model: Article (table: article)
+INFO:root:found mapping: about_cafe ==> <StringField, varchar(50), None>
+INFO:root:found mapping: isdemand ==> <BooleanField, boolean, None>
+INFO:root:found mapping: name ==> <TextField, text, None>
+INFO:root:found mapping: image ==> <StringField, varchar(200), None>
+INFO:root:found mapping: author ==> <StringField, varchar(50), None>
+INFO:root:found mapping: content ==> <StringField, varchar(200), None>
+INFO:root:found mapping: about_drink ==> <BooleanField, boolean, None>
+INFO:root:found mapping: about_course ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: idarticle ==> <StringField, varchar(50), None>
+INFO:root:found mapping: family ==> <StringField, varchar(50), None>
+INFO:root:found mapping: isknowledge ==> <BooleanField, boolean, None>
+INFO:root:found mapping: isnote ==> <BooleanField, boolean, None>
+INFO:root:found model: CommentArticle (table: comment_article)
+INFO:root:found mapping: created_from ==> <StringField, varchar(50), None>
+INFO:root:found mapping: reply_to ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: about ==> <StringField, varchar(50), None>
+INFO:root:found mapping: idcomment_article ==> <StringField, varchar(50), None>
+INFO:root:found mapping: content ==> <TextField, text, None>
+INFO:root:found model: CollectArticle (table: collect_article)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: article ==> <StringField, varchar(50), None>
+INFO:root:found model: LikeArticle (table: like_article)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: article ==> <StringField, varchar(50), None>
+INFO:root:found model: Coffee (table: coffee)
+INFO:root:found mapping: name ==> <StringField, varchar(50), None>
+INFO:root:found model: Follow (table: follow)
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: towho ==> <StringField, varchar(50), None>
+INFO:root:found mapping: fromwho ==> <StringField, varchar(50), None>
+INFO:root:found model: HaveCoffee (table: have_coffee)
+INFO:root:found mapping: cafe ==> <StringField, varchar(50), None>
+INFO:root:found mapping: coffee ==> <StringField, varchar(50), None>
+INFO:root:found model: Enjoy (table: enjoy)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: coffee ==> <StringField, varchar(50), None>
+INFO:root:found model: Join (table: join)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: activity ==> <StringField, varchar(50), None>
+INFO:root:found model: LikeCafe (table: like_cafe)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: cafe ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found model: CommentCafe (table: comment_cafe)
+INFO:root:found mapping: created_from ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: idcomment_cafe ==> <StringField, varchar(50), None>
+INFO:root:found mapping: about ==> <StringField, varchar(50), None>
+INFO:root:found mapping: reply_to ==> <StringField, varchar(50), None>
+INFO:root:found mapping: content ==> <TextField, text, None>
+INFO:root:found model: CollectCafe (table: collect_cafe)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: cafe ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found model: CollectActivity (table: collect_activity)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: activity ==> <StringField, varchar(50), None>
+INFO:root:found model: NoteTag (table: note_tag)
+INFO:root:found mapping: name ==> <StringField, varchar(50), None>
+INFO:root:found model: HaveNoteTag (table: have_note_tag)
+INFO:root:found mapping: note ==> <StringField, varchar(50), None>
+INFO:root:found mapping: tag ==> <StringField, varchar(50), None>
+INFO:root:found model: CourseTag (table: course_tag)
+INFO:root:found mapping: name ==> <StringField, varchar(50), None>
+INFO:root:found model: HaveCourseTag (table: have_course_tag)
+INFO:root:found mapping: tag ==> <StringField, varchar(50), None>
+INFO:root:found mapping: course ==> <StringField, varchar(50), None>
+INFO:root:found model: Read (table: read)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: article ==> <StringField, varchar(50), None>
+INFO:root:found model: Look (table: look)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: course ==> <StringField, varchar(50), None>
+INFO:root:found model: CommentCourse (table: comment_course)
+INFO:root:found mapping: created_from ==> <StringField, varchar(50), None>
+INFO:root:found mapping: idcomment_course ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: about ==> <StringField, varchar(50), None>
+INFO:root:found mapping: reply_to ==> <StringField, varchar(50), None>
+INFO:root:found mapping: content ==> <TextField, text, None>
+INFO:root:found model: CollectCourse (table: collect_course)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: course ==> <StringField, varchar(50), None>
+INFO:root:found model: LikeCourse (table: like_course)
+INFO:root:found mapping: user ==> <StringField, varchar(50), None>
+INFO:root:found mapping: created_at ==> <DoubleField, double, None>
+INFO:root:found mapping: course ==> <StringField, varchar(50), None>
+INFO:root:create database connection pool...
+INFO:root:add route POST /api/add/courseTag => api_add_courseTag(request, course, tag)
+INFO:root:add route POST /api/add/noteTag => api_add_noteTag(request, note, tag)
+INFO:root:add route GET /api/author/{email} => api_author(email)
+INFO:root:add route GET /api/comment/article/{article} => api_comment_article(article)
+INFO:root:add route GET /api/comment/course/{course} => api_comment_course(course)
+INFO:root:add route GET /api/courseBest => api_courseBest()
+INFO:root:add route POST /api/like/article => api_like_article(request, article)
+INFO:root:add route POST /api/like/course => api_like_course(request, course)
+INFO:root:add route POST /api/look => api_look(request, course)
+INFO:root:add route GET /api/noteBest => api_noteBest()
+INFO:root:add route GET /api/number/article/{article} => api_number_article(article)
+INFO:root:add route GET /api/number/course/{course} => api_number_course(course)
+INFO:root:add route POST /api/publish/commentArticle => api_publish_commentArticle(request, reply_to, content, about)
+INFO:root:add route POST /api/publish/commentCourse => api_publish_commentCourse(request, reply_to, content, about)
+INFO:root:add route POST /api/publish/demand => api_publish_demand(request)
+INFO:root:add route POST /api/publish/knowledge => api_publish_knowledge(request)
+INFO:root:add route POST /api/publish/note => api_publish_note(request)
+INFO:root:add route GET /api/rawBest => api_rawBest()
+INFO:root:add route POST /api/read => api_read(request, article)
+INFO:root:add route POST /api/register/cafe => api_register_cafe(email, password, name, city, address)
+INFO:root:add route POST /api/register/user => api_register_user(email, password, nickname, city)
+INFO:root:add route GET /api/relative/course/{course} => api_relative_course(course)
+INFO:root:add route GET /api/relative/note/{note} => api_relative_note(note)
+INFO:root:add route GET /api/relative/tag/{tag} => api_relative_tag(tag)
+INFO:root:add route POST /api/signin/cafe => api_signin_cafe(email, password)
+INFO:root:add route POST /api/signin/user => api_signin_user(email, password)
+INFO:root:add route GET /api/signout => api_signout(request)
+INFO:root:add route GET /api/tag/article/{article} => api_tag_article(article)
+INFO:root:add route GET /api/tag/course => api_tag_course()
+INFO:root:add route GET /api/todayBest => api_todayBest()
+INFO:root:add route POST /api/update/cafeInfo => api_update_cafeInfo(request, image, introduction)
+INFO:root:add route POST /api/update/userEnjoy => api_update_userEnjoy(request, enjoy_sugar, enjoy_milk, single_espresso)
+INFO:root:add route POST /api/update/userInfo => api_update_userInfo(request, nickname, avatar, introduction, city)
+INFO:root:add route POST /api/upload/course => api_upload_course(request, image, name, introduction, video)
+INFO:root:add route POST /api/upload/image => api_upload_image(request)
+INFO:root:add route POST /api/upload/video => api_upload_video(request)
+INFO:root:add static /static/ => D:\1570\Coffee Rhythm\Coffee Rhythm Server\static
+INFO:root:server started at http://127.0.0.1:80...
