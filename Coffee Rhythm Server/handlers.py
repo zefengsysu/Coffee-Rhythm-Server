@@ -694,7 +694,7 @@ async def api_publish_note(request):
         raise APIResourceNotFoundError('about_cafe', about_cafe)
     if about_course and Course.find([about_course]) is None:
         raise APIResourceNotFoundError('about_course', about_course)
-    with open(os.path.join(static/article/', content.filename), 'wb') as f:
+    with open(os.path.join('static/article/', content.filename), 'wb') as f:
         f.write(content.file.read())
     content = '/static/article/' + content.filename
     if about_cafe:
