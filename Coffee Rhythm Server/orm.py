@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import asyncio, logging
-logging.basicConfig(filename='CoffeeRhythm.log', filemode='a', level = logging.INFO)
 
 import aiomysql
 

@@ -4,7 +4,6 @@
 ' url handlers '
 
 import re, time, json, logging, hashlib, base64, asyncio, os
-logging.basicConfig(filename='CoffeeRhythm.log', filemode='a', level = logging.INFO)
 
 from aiohttp import web
 

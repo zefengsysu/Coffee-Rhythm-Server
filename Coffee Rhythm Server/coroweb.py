@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import asyncio, os, inspect, logging, functools
-logging.basicConfig(filename='CoffeeRhythm.log', filemode='a', level = logging.INFO)
 
 from urllib import parse
 
