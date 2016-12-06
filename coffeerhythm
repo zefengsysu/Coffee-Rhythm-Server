@@ -13,7 +13,16 @@ server {
     }
 
     # 处理静态资源:
-    location ~ ^\/static\/.*$ {
+    location /static/ {
+        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
+    }
+    location /static/article {
+        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
+    }
+    location /static/img {
+        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
+    }
+    location /static/video {
         root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
     }
 
