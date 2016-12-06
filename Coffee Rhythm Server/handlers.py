@@ -492,7 +492,6 @@ async def api_signin_cafe(*, email, password):
 # 测试：/static/upload_image.html
 @post('/api/upload/image')
 async def api_upload_image(request):
-    check_admin(request)
     user = request.__user__
     if user is None:
         raise APIPermissionError('Please signin first.')
@@ -514,7 +513,6 @@ async def api_upload_image(request):
 # 测试：/static/upload_video.html
 @post('/api/upload/video')
 async def api_upload_video(request):
-    check_admin(request)
     user = request.__user__
     if user is None:
         raise APIPermissionError('Please signin first.')
