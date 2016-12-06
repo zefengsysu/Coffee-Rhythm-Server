@@ -7,25 +7,6 @@ server {
 
     # server_name ; # 配置域名
 
-    # 处理静态文件/favicon.ico:
-    location /favicon.ico {
-        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
-    }
-
-    # 处理静态资源:
-    location /static/ {
-        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
-    }
-    location /static/article {
-        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
-    }
-    location /static/img {
-        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
-    }
-    location /static/video {
-        root /home/Coffee-Rhythm-Server/Coffee\ Rhythm\ Server;
-    }
-
     # 动态请求转发到2048端口:
     location / {
         proxy_pass       http://127.0.0.1:2048;
