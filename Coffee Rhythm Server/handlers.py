@@ -540,7 +540,7 @@ async def api_update_userInfo(request, *, nickname, avatar, introduction, city):
     user = request.__user__
     if user is None:
         raise APIPermissionError('Please signin first.')
-    if avatar and not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + avatar):
+    if avatar and not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + avatar):
         raise APIResourceNotFoundError('avatar', avatar)
     user.nickname = nickname or '咖友'
     user.avatar = avatar or '/static/img/user.png'
@@ -569,7 +569,7 @@ async def api_update_cafeInfo(request, *, image, introduction):
         cafe = await cookie2cafe(cookie_str)
     if cafe is None:
         raise APIPermissionError('Please signin first.')
-    if image and not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + image):
+    if image and not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
     cafe.image = image
     cafe.introduction = introduction
@@ -625,9 +625,9 @@ async def api_upload_course(request, *, image, name, introduction, video):
     user = request.__user__
     if user is None:
         raise APIPermissionError('Please signin first.')
-    if image and not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + image):
+    if image and not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
-    if not video or not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + video):
+    if not video or not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + video):
         raise APIResourceNotFoundError('video', video)
     course = Course(image=image or '/static/img/course.png', name=name, author=user.email, introduction=introduction, video=video)
     await course.save()
@@ -656,7 +656,7 @@ async def api_publish_knowledge(request):
     if user is None:
         raise APIPermissionError('Please signin first.')
     check_admin(request)
-    if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + image):
+    if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
     with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', content.filename), 'wb') as f:
         f.write(content.file.read())
@@ -689,7 +689,7 @@ async def api_publish_note(request):
     user = request.__user__
     if user is None:
         raise APIPermissionError('Please signin first.')
-    if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + image):
+    if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
     if about_cafe and Cafe.find([about_cafe]) is None:
         raise APIResourceNotFoundError('about_cafe', about_cafe)
@@ -730,7 +730,7 @@ async def api_publish_demand(request):
     user = request.__user__
     if user is None:
         raise APIPermissionError('Please signin first.')
-    if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/' + image):
+    if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
     with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', content.filename), 'wb') as f:
         f.write(content.file.read())
