@@ -453,7 +453,7 @@ async def api_signin_user(*, email, password):
     # authenticate ok, set cookie:
     r = web.Response()
     r.set_cookie(COOKIE_NAME, user2cookie(user), httponly=True)
-    user.passwd = '******'
+    user.password = '******'
     r.content_type = 'application/json'
     r.body = json.dumps(user, ensure_ascii=False).encode('utf-8')
     return r
@@ -480,10 +480,13 @@ async def api_signin_cafe(*, email, password):
     # authenticate ok, set cookie:
     r = web.Response()
     r.set_cookie(COOKIE_NAME, user2cookie(cafe), httponly=True)
-    cafe.passwd = '******'
+    cafe.password = '******'
     r.content_type = 'application/json'
     r.body = json.dumps(cafe, ensure_ascii=False).encode('utf-8')
     return r
+
+def nameFile(user, filename):
+    return user + '_' + str(time.time())) + '_' + filename
 
 # 图片上传 [ip]/api/upload/image
 # 前端: post formData: image
@@ -498,7 +501,7 @@ async def api_upload_image(request):
         raise APIPermissionError('Please signin first.')
     reader = await request.multipart()
     image = await reader.next()
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/img/', image.filename), 'wb') as f:
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/img/', nameFile(user.email, image.filename)), 'wb') as f:
         while True:
             chunk = await image.read_chunk()  # 8192 bytes by default.
             if not chunk:
@@ -519,7 +522,7 @@ async def api_upload_video(request):
         raise APIPermissionError('Please signin first.')
     reader = await request.multipart()
     video = await reader.next()
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/video/', video.filename), 'wb') as f:
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/video/', nameFile(user.email, video.filename)), 'wb') as f:
         while True:
             chunk = await video.read_chunk()  # 8192 bytes by default.
             if not chunk:
@@ -658,7 +661,7 @@ async def api_publish_knowledge(request):
     check_admin(request)
     if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', content.filename), 'wb') as f:
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', nameFile(user.email, content.filename)), 'wb') as f:
         f.write(content.file.read())
     content = '/static/article/' + content.filename
     article = Article(image=image or '/static/img/knowledge.png', name=name, author=user.email, content=content, family=family, isknowledge=True)
@@ -695,7 +698,7 @@ async def api_publish_note(request):
         raise APIResourceNotFoundError('about_cafe', about_cafe)
     if about_course and Course.find([about_course]) is None:
         raise APIResourceNotFoundError('about_course', about_course)
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', content.filename), 'wb') as f:
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', nameFile(user.email, content.filename)), 'wb') as f:
         f.write(content.file.read())
     content = '/static/article/' + content.filename
     if about_cafe:
@@ -732,7 +735,7 @@ async def api_publish_demand(request):
         raise APIPermissionError('Please signin first.')
     if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', content.filename), 'wb') as f:
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', nameFile(user.email, content.filename)), 'wb') as f:
         f.write(content.file.read())
     content = '/static/article/' + content.filename
     article = Article(image=image or '/static/img/demand.png', name=name, author=user.email, content=content, about_drink=about_drink, isdemand=True)
