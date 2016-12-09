@@ -486,7 +486,7 @@ async def api_signin_cafe(*, email, password):
     return r
 
 def nameFile(user, filename):
-    return user + '_' + str(time.time())) + '_' + filename
+    return user + '_' + str(time.time()) + '_' + filename
 
 # 图片上传 [ip]/api/upload/image
 # 前端: post formData: image
