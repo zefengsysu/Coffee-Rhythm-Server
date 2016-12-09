@@ -501,13 +501,14 @@ async def api_upload_image(request):
         raise APIPermissionError('Please signin first.')
     reader = await request.multipart()
     image = await reader.next()
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/img/', nameFile(user.email, image.filename)), 'wb') as f:
+    imageName = nameFile(user.email, image.filename)
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/img/', imageName), 'wb') as f:
         while True:
             chunk = await image.read_chunk()  # 8192 bytes by default.
             if not chunk:
                 break
             f.write(chunk)
-    return web.Response(text='/static/img/' + image.filename)
+    return web.Response(text='/static/img/' + imageName)
 
 # 视频上传 [ip]/api/upload/video
 # 前端: post formData: video
@@ -522,13 +523,14 @@ async def api_upload_video(request):
         raise APIPermissionError('Please signin first.')
     reader = await request.multipart()
     video = await reader.next()
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/video/', nameFile(user.email, video.filename)), 'wb') as f:
+    videoName = nameFile(user.email, video.filename)
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/video/', videoName), 'wb') as f:
         while True:
             chunk = await video.read_chunk()  # 8192 bytes by default.
             if not chunk:
                 break
             f.write(chunk)
-    return web.Response(text='/static/video/' + video.filename)
+    return web.Response(text='/static/video/' + videoName)
 
 # 修改用户信息 [ip]/api/update/userInfo
 # 前端: post formData: nickname, avatar, introduction, city
@@ -661,9 +663,10 @@ async def api_publish_knowledge(request):
     check_admin(request)
     if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', nameFile(user.email, content.filename)), 'wb') as f:
+    contentName = nameFile(user.email, content.filename)
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', contentName), 'wb') as f:
         f.write(content.file.read())
-    content = '/static/article/' + content.filename
+    content = '/static/article/' + contentName
     article = Article(image=image or '/static/img/knowledge.png', name=name, author=user.email, content=content, family=family, isknowledge=True)
     await article.save()
     r = web.Response()
@@ -698,9 +701,10 @@ async def api_publish_note(request):
         raise APIResourceNotFoundError('about_cafe', about_cafe)
     if about_course and Course.find([about_course]) is None:
         raise APIResourceNotFoundError('about_course', about_course)
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', nameFile(user.email, content.filename)), 'wb') as f:
+    contentName = nameFile(user.email, content.filename)
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', contentName), 'wb') as f:
         f.write(content.file.read())
-    content = '/static/article/' + content.filename
+    content = '/static/article/' + contentName
     if about_cafe:
         article = Article(image=image or '/static/img/note.png', name=name, author=user.email, content=content, about_cafe=about_cafe, isnote=True)
     elif about_course:
@@ -735,9 +739,10 @@ async def api_publish_demand(request):
         raise APIPermissionError('Please signin first.')
     if not os.path.exists('/home/Coffee-Rhythm-Server/Coffee Rhythm Server' + image):
         raise APIResourceNotFoundError('image', image)
-    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', nameFile(user.email, content.filename)), 'wb') as f:
+    contentName = nameFile(user.email, content.filename)
+    with open(os.path.join('/home/Coffee-Rhythm-Server/Coffee Rhythm Server/static/article/', contentName), 'wb') as f:
         f.write(content.file.read())
-    content = '/static/article/' + content.filename
+    content = '/static/article/' + contentName
     article = Article(image=image or '/static/img/demand.png', name=name, author=user.email, content=content, about_drink=about_drink, isdemand=True)
     await article.save()
     r = web.Response()
